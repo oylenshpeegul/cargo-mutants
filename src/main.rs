@@ -2,7 +2,7 @@
 
 //! `cargo-mutants`: Find test gaps by inserting bugs.
 //!
-//! See <https://mutants.rs> for more information.
+//! See <https://mutants.rs> for the manual and more information.
 
 mod build_dir;
 mod cargo;
@@ -193,7 +193,11 @@ pub struct Args {
     )]
     in_place: bool,
 
-    /// Run this many cargo build/test jobs in parallel.
+    /// Skip mutants that were caught in the previous run.
+    #[arg(long, help_heading = "Filters")]
+    iterate: bool,
+
+    /// ny cargo build/test jobs in parallel.
     #[arg(
         long,
         short = 'j',
